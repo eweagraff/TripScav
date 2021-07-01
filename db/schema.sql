@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS tripscav_db;
+
+CREATE DATABASE tripscav_db;

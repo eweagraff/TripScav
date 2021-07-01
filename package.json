@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/eweagraff/TripScav/issues"
   },
-  "homepage": "https://github.com/eweagraff/TripScav#readme"
+  "homepage": "https://github.com/eweagraff/TripScav#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bulma": "^0.9.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "sequelize": "^6.6.4"
+  }
 }

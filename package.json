@@ -1,0 +1,20 @@
+{
+  "name": "tripscav",
+  "version": "1.0.0",
+  "description": "Search and save popular sightseeing destintations all around the world!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eweagraff/TripScav.git"
+  },
+  "author": "Emily, David, Edgar, Veikko, Matt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eweagraff/TripScav/issues"
+  },
+  "homepage": "https://github.com/eweagraff/TripScav#readme"
+}

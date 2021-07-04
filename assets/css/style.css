@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Graduate&display=swap");
+
+:root {
+  --dark-color: #000;
+  --main-font: "Graduate", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--main-font);
+  background-color: (var(--dark-color));
+  animation: transitionIn 0.75s;
+}
+
+
+
+/* Google Slides */
+.responsive-google-slides {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  .responsive-google-slides iframe {
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+
+
+
+
+
+.title {
+  color: #fff;
+}
+
+.userInput {
+  margin-top: -500px;
+  padding-top: 100px;
+  color: #fff;
+  /* animation: input 2.5s ease-in-out 0s normal; */
+}
+
+.userInput input {
+  width: 300px;
+}
+.userInput button {
+  margin-top: 20px;
+}
+
+/* =============== */
+/*      Back Ground Images  */
+/* =============== */
+
+.main .background {
+  position: relative;
+  z-index: 1;
+  height: 95vh;
+  width: 100%;
+  background-color: var(--dark-color);
+}
+
+.main-filed img {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.pictures img {
+  width: 400px;
+  z-index: 2;
+}
+
+
+/* =============== */
+/*      Result Content   */
+/* =============== */
+
+.result-content {
+  width: 100%;
+  position: relative;
+  background-color: var(--dark-color);
+}
+.secound-img {
+  background-color: #000;
+}
+
+.secound-img .is-size-2 {
+  color: #fff;
+}
+
+.secound-img a {
+  text-decoration: none;
+  color: turquoise;
+}
+
+.secound-img a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.result-content .secound-img img {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-size: cover;
+}
+
+.result-content .card-content p {
+  color: grey;
+}
+
+.card .content a {
+  text-decoration: none;
+  color: #fff;
+}
+.card .content a:hover {
+  color: blue;
+}
+
+/* =============== */
+/*      Models  */
+/* =============== */
+
+#mapsection {
+  position: relative;
+  background-color: #000;
+  width: 100%;
+  height: 70vh;
+}
+#map {
+  position: relative;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  height: 50vh;
+  width: 50%;
+}
+
+.hidden {
+  display: none;
+}
+
+/* =============== */
+/*      KeyFrames   */
+/* =============== */
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+@keyframes startleft {
+  from {
+    margin-left: -500px;
+  }
+  to {
+    margin-left: 1300px;
+  }
+}
+
+@keyframes startbottom {
+  from {
+    margin-left: -1200px;
+  }
+}
+
+@keyframes startright {
+  from {
+    margin-top: -600px;
+    margin-left: 2000px;
+  }
+}
+
+@keyframes input {
+  from {
+    transform: translatey(700px);
+  }
+}
+
+@keyframes cards {
+  from {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .main .background {
+    position: relative;
+    z-index: 1;
+    height: 50%;
+    width: 100%;
+    background-color: var(--dark-color);
+  }
+
+  .main-filed img {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+
+  .userInput {
+    margin: auto;
+    padding-bottom: 200px;
+    color: #fff;
+    animation: none;
+  }
+
+  .map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: 0 auto;
+    height: 50vh;
+    width: 100%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 1023px) {
+  .userInput {
+    margin: auto;
+    padding-top: 200px;
+    color: #fff;
+    animation: none;
+  }
+}

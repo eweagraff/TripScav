@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Event, User, Location } = require('../models');
+const { Event, User} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -26,12 +26,3 @@ router.get('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-//const router = require('express').Router();
-
-//router.get("/", (req, res) => {
-  //console.log("+++++++++++++++");
-  //res.send("helllllooo");
-//});
-
-//module.exports = router;

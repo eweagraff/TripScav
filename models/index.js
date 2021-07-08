@@ -1,6 +1,6 @@
 const User = require("./user");
 const Location = require('./location');
-const Site = require('./Site');
+const Site = require('./site');
 
 User.hasMany(Site, {
   foreignKey: "user_id",

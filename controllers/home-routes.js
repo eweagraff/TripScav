@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Event, User} = require('../models');
+const { Site, User} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
     // Get all events and JOIN with user data
-    const eventData = await Event.findAll({
+    const siteData = await Site.findAll({
       include: [
         {
           model: User,
@@ -15,7 +15,7 @@ router.get('/', withAuth, async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const events = eventData.map((event) => event.get({ plain: true }));
+    const events = siteData.map((event) => event.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 

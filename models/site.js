@@ -11,14 +11,8 @@ Site.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    Site_name: {
+    site_name: {
       type: DataTypes.STRING,
-    },
-    description: {
-      type: DataTypes.STRING,
-    },
-    date: {
-      type: DataTypes.INTEGER,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -39,7 +33,7 @@ Site.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "Site",
+    modelName: "site",
   }
 );
 

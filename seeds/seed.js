@@ -1,10 +1,10 @@
 const sequelize = require('../config/connection');
-const { User, Event } = require('../models');
+const { User, Site } = require('../models');
 // add Location and Event into the object like this { User, Location, Event }
 
 const userData = require('./userData.json');
-// const locationData = require('./locationData.json');
-const eventData = require('./eventData.json');
+const locationData = require('./locationData.json');
+const siteData = require('./siteData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -13,7 +13,9 @@ const seedDatabase = async () => {
         individualHooks: true,
         returning: true,
     });
-    await Event.bulkCreate(eventData);
+    await Site.bulkCreate(siteData);
+
+    await Location.bulkCreate(locationData);
 
 
 

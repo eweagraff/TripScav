@@ -1,17 +1,17 @@
 const User = require("./user");
 const Location = require('./location');
-const Event = require('./event');
+const Site = require('./site');
 
-User.hasMany(Event, {
+User.hasMany(Site, {
   foreignKey: "user_id",
 });
 
-Location.hasMany(Event, {
+Location.hasMany(Site, {
   foreignKey: "location_id",
 });
 
-Event.belongsTo(Location, {
+Site.belongsTo(Location, {
   foreignKey: "location_id",
 });
 
-module.exports = { User, Location, Event };
+module.exports = { User, Location, Site };

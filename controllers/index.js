@@ -7,7 +7,7 @@ router.use('/api', apiRoutes);
 
 router.get("/", (req, res) => {
 console.log("+++++++++++++++");
-res.send("helllllooo");
+res.render("homepage");
 });
 
 module.exports = router;

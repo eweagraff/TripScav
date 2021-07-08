@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Event extends Model {}
+class Site extends Model {}
 
-Event.init(
+Site.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,12 +13,6 @@ Event.init(
     },
     event_name: {
       type: DataTypes.STRING,
-    },
-    description: {
-      type: DataTypes.STRING,
-    },
-    date: {
-      type: DataTypes.INTEGER,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -43,4 +37,4 @@ Event.init(
   }
 );
 
-module.exports = Event;
+module.exports = Site;

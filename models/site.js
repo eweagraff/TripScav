@@ -11,7 +11,7 @@ Site.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    event_name: {
+    site_name: {
       type: DataTypes.STRING,
     },
     user_id: {
@@ -33,7 +33,7 @@ Site.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "event",
+    modelName: "site",
   }
 );
 

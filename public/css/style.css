@@ -6,20 +6,33 @@
 
 html {
   scroll-behavior: smooth;
+  background-color:black;
+  cursor: url('../cursor/Milcur.cur'), default;
+ 
 }
 
-body {
-  font-family: var(--main-font);
-  background-color: (var(--dark-color));
-  animation: transitionIn 0.75s;
+/* Lightsaber Cursor Link Pointer */
+.navbar-link, a.navbar-item {
+  cursor: url('../cursor/Gsaber.cur'), pointer;
 }
 
 
+#cursor {
+  height : 50px;
+  width: 50px;
+  background:url("../cursor/tiecurs.png");
+  background-repeat:no-repeat;
+  position:absolute;
+  display:none;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+}
 
-/* Google Slides */
-.responsive-google-slides {
+
+/* Google Slides Old Settings */
+/* .responsive-google-slides {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Ratio */
+    padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
   }
@@ -30,10 +43,30 @@ body {
     left: 0;
     width: 100% !important;
     height: 100% !important;
-  }
+  } */
 
+  /* New Google Slides Position and Shape */
+  .responsive-google-slides {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    position: absolute;
+    top: 77px;
+}
+  .responsive-google-slides iframe {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+}
 
-  .navbar-item, .navbar-link {
+/* Nav Bar Stuff */
+.navbar {
+  background-color:black;
+}
+
+  .navbar-item .navbar-link {
     color:yellow;
     display: block;
     line-height: 1.5;
@@ -44,17 +77,21 @@ body {
 
 
 .navbar-menu {
-  background-color: black;
+  color:yellow;
   box-shadow: 0 8px 16px rgb(10 10 10 / 10%);
   padding: .5rem 0;
 }
 
-
-a {
-  color:yellow;
-  font-family: "Starwars";
+.navbar-menu.is-active {
+  background-color: transparent;
 }
 
+
+
+a.navbar-item {
+  color:yellow !important;
+  font-family: "Starwars";
+}
 
 
 /* Navbar Logo */

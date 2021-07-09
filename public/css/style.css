@@ -11,6 +11,10 @@ html {
  
 }
 
+.background {
+  background-color:black;
+}
+
 /* Lightsaber Cursor Link Pointer */
 .navbar-link, a.navbar-item {
   cursor: url('../cursor/Gsaber.cur'), pointer;
@@ -26,6 +30,7 @@ html {
   display:none;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
+  
 }
 
 

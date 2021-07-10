@@ -126,3 +126,7 @@ a.navbar-item {
   color:yellow;
   font-family: "Starwars";
 }
+
+#event_name {
+  color: red;
+}

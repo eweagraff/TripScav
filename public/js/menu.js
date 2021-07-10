@@ -1,6 +1,6 @@
 
 // Modal Toggle Code
-// document.querySelector('a#open-modal').addEventListener('click', function(event) {
+// document.querySelector('#open-modal').addEventListener('click', function(event) {
 //     event.preventDefault();
 //     var modal = document.querySelector('.modal');  // assuming you have only 1
 //     var html = document.querySelector('html');
@@ -14,18 +14,13 @@
 //     });
 //   });
 
+// Millenium Falcon + Tie Fighter Cursor Flying
+var cursor = document.querySelector(".cursor");
+var cursor2 = document.querySelector(".cursor2");
+document.addEventListener("mousemove",function(e){
+  cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+});
 
-
-
-//Tie Fighter Following Cursor
-var cursor = document.getElementById("cursor");
-
-document.onmousemove = function(e){
-    cursor.style.left = e.pageX + "px";
-    cursor.style.top = e.pageY+ "px";
-    cursor.style.display = "block";
-
-}
 
 // Burger menu
 document.addEventListener('DOMContentLoaded', () => {

@@ -20,17 +20,39 @@ html {
   cursor: url('../cursor/Gsaber.cur'), pointer;
 }
 
-
-#cursor {
-  height : 50px;
+/* Millenium Falcon and Tie Fighter Cursor Settings */
+.cursor{
+  position: fixed;
   width: 50px;
-  background:url("../cursor/tiecurs.png");
-  background-repeat:no-repeat;
-  position:absolute;
-  display:none;
-  transition-duration: 0.5s;
+  height: 50px;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: .1s;
+}
+
+.cursor2 {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background: url(../cursor/tiecurs.png);
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: .5s;
   transition-timing-function: ease-out;
-  
+}
+
+.content:hover ~ .cursor{
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: #c6c6c6;
+  opacity: .5;
+}
+
+.content:hover ~ .cursor2{
+  opacity: 0;
 }
 
 

@@ -31,8 +31,8 @@
       <div class="navbar-start"></div>
       <div class="navbar-end">
         {{#if loggedIn}}
-          <a id="logout" class="navbar-item" href="/">Logout</a>
-          {{else}}
+        <a id="logout" class="navbar-item" href="/">Logout</a>
+        {{else}}
         <a id="login" class="navbar-item" href="/login">Login</a>
         {{/if}}
         <a id="signup" href="/signup" class="navbar-item">Signup</a>
@@ -40,8 +40,8 @@
     </div>
   </nav>
   <main class="main is-variable is-2-mobile is-0-tablet is-3-desktop is-8-widescreen is-1-fullhd">
-    <div class="background">
-      <video  preload="auto" playsinline loop width="100%" height="100%" autoplay muted>
+    <div style="z-index:-1"class="background">
+      <video preload="auto" playsinline loop width="100%" height="100%" autoplay muted>
         <source src="/mov/TS.mov" type="video/mp4">
         <source src="movie.ogg" type="video/ogg">
       </video>
@@ -56,66 +56,53 @@
       <footer>
 
       </footer>
-    </div> 
-    {{!-- Tie Fighter Flying --}}
-    <div id = "cursor" ></div>
+    </div>
+    {{!-- Millenium Falcon + Tie Fighter Flying --}}
+    <div class="cursor"></div>
+  <div class="cursor2"></div>
 
-  {{!-- Modal Will Use Later when Routes Done --}}
-  {{!-- <div class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-
-   <form id ="signup-form">
-<div class="field">
-    <label class="label">Email</label>
-    <div class="control has-icons-left has-icons-right">
-        <input id="email-signup" class="input is-danger" type="email" placeholder="Email">
-        <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-        </span>
-        <span class="icon is-small is-right">
-            <i class="fas fa-exclamation-triangle"></i>
-        </span>
-    </div>
-</div>
-<div class="field">
-    <label class="label">Username</label>
-    <div class="control has-icons-left has-icons-right">
-        <input id="username-signup" class="input is-success" type="text" placeholder="Username">
-        <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-        </span>
-        <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-        </span>
-    </div>
-</div>
-<div class="field">
-    <label class="label">Password</label>
-    <div class="control">
-        <input id="password-signup" class="input" type="text" placeholder="Password">
-    </div>
-</div>
-<div class="field is-grouped">
-    <div class="control">
-        <button class="button is-link">Submit</button>
-    </div>
-</div>
-</form>
- <button class="modal-close is-large" aria-label="close"></button>
-</div> --}}
+    {{!-- Modal Will Use Later when Routes Done --}}
+    {{!-- <div class="modal" "is-active">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <form id="signup-form">
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input id="email-signup" class="input" type="text" placeholder="Email" autofocus="true">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+              <input id="username-signup" class="input" type="text" placeholder="Username" autofocus="true">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input id="password-signup" class="input" type="text" placeholder="Password" autofocus="true">
+            </div>
+          </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link">Submit</button>
+            </div>
+          </div>
+        </form>
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div> --}}
 
 
-<!-- Cursor and Navigation Bar Javascript -->
-    <script src="/js/menu.js"></script>
-    {{!-- Modal script --}}
-        {{!-- <script src="/js/signup.js"></script> --}}
-    <!-- Render script for logged in users only -->
-    {{#if loggedIn}} 
-    <script src="/js/logout.js"></script> 
-     {{/if}}
- 
-   
+      <!-- Cursor and Navigation Bar Javascript -->
+      <script src="/js/menu.js"></script>
+      <!-- Render script for logged in users only -->
+      {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+      {{/if}}
+
+
 
 </body>
+
 </html>

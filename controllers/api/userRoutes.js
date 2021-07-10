@@ -1,9 +1,23 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+///Enabled to get User array from api link
+router.get('/', (req, res) => {
+    User.findAll({
+        attributes: { exclude: ['[password'] }
+    })
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
+//Create New Account
 router.post('/', (req, res) => {
-  console.log("YOUR IN THE USER MAKING FUNCTION");
+    console.log("\n=======================================");
+    console.log("\n++++++++++++YOUR IN THE ACCOUNT CREATION FUNCTION+++++++++++++");
+    console.log("\n=======================================");
      User.create({
       username: req.body.username,
       password: req.body.password,
@@ -18,6 +32,7 @@ router.post('/', (req, res) => {
               req.session.loggedIn = true;
 
               res.json(dbUserData);
+              
           });
       })
       .catch(err => {
@@ -25,10 +40,6 @@ router.post('/', (req, res) => {
           res.status(500).json(err);
       });
 });
-
-
-
-
 
 
 
@@ -48,8 +59,11 @@ router.post('/', (req, res) => {
 //   }
 // });
 
-
+//Login Function
 router.post('/login', (req, res) => {
+    console.log("\n=======================================");
+    console.log("\n++++++++++++YOUR IN THE LOGIN FUNCTION+++++++++++++");
+    console.log("\n=======================================");
   User.findOne({
       where: {
           username: req.body.username
@@ -66,7 +80,6 @@ router.post('/login', (req, res) => {
           return;
       }
       req.session.save(() => {
-
           req.session.user_id = dbUserData.id;
           req.session.username = dbUserData.username;
           req.session.loggedIn = true;
@@ -80,7 +93,17 @@ router.post('/login', (req, res) => {
       });
 });
 
-
+router.post('/logout', (req, res) => {
+    console.log("\n=======================================");
+    console.log("\n++++++++++++YOUR IN THE LOGOUT FUNCTION+++++++++++++");
+    console.log("\n=======================================");
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 
 
 
@@ -116,14 +139,6 @@ router.post('/login', (req, res) => {
 //   }
 // });
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
 });
 
 module.exports = router;

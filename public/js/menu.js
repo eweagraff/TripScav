@@ -1,5 +1,5 @@
 
-// Modal Code will use later
+// Modal Toggle Code
 // document.querySelector('a#open-modal').addEventListener('click', function(event) {
 //     event.preventDefault();
 //     var modal = document.querySelector('.modal');  // assuming you have only 1

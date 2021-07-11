@@ -3,25 +3,24 @@
   src: url("../font/Starjhol.ttf");
 }
 
-
 html {
   scroll-behavior: smooth;
-  background-color:black;
-  cursor: url('../cursor/Milcur.cur'), default;
- 
+  background-color: black;
+  cursor: url("../cursor/Milcur.cur"), default;
 }
 
 .background {
-  background-color:black;
+  background-color: black;
 }
 
 /* Lightsaber Cursor Link Pointer */
-.navbar-link, a.navbar-item {
-  cursor: url('../cursor/Gsaber.cur'), pointer;
+.navbar-link,
+a.navbar-item {
+  cursor: url("../cursor/Gsaber.cur"), pointer;
 }
 
 /* Millenium Falcon and Tie Fighter Cursor Settings */
-.cursor{
+.cursor {
   position: fixed;
   width: 50px;
   height: 50px;
@@ -29,7 +28,7 @@ html {
   top: 0;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: .1s;
+  transition: 0.1s;
 }
 
 .cursor2 {
@@ -41,20 +40,19 @@ html {
   top: 0;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: .5s;
+  transition: 0.5s;
   transition-timing-function: ease-out;
 }
 
-.content:hover ~ .cursor{
+.content:hover ~ .cursor {
   transform: translate(-50%, -50%) scale(1.5);
   background-color: #c6c6c6;
-  opacity: .5;
+  opacity: 0.5;
 }
 
-.content:hover ~ .cursor2{
+.content:hover ~ .cursor2 {
   opacity: 0;
 }
-
 
 /* Google Slides Old Settings */
 /* .responsive-google-slides {
@@ -72,58 +70,54 @@ html {
     height: 100% !important;
   } */
 
-  /* New Google Slides Position and Shape */
-  .responsive-google-slides {
-    width: 20vw;
-    height: 20vw;
-    border-radius: 50%;
-    position: absolute;
-    top: 77px;
+/* New Google Slides Position and Shape */
+.responsive-google-slides {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 50%;
+  position: absolute;
+  top: 77px;
 }
-  .responsive-google-slides iframe {
-    width: 20vw;
-    height: 20vw;
-    border-radius: 50%;
-    position: absolute;
-    top: -5px;
+.responsive-google-slides iframe {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
 }
 
 /* Nav Bar Stuff */
 .navbar {
-  background-color:black;
+  background-color: black;
 }
 
-  .navbar-item .navbar-link {
-    color:yellow;
-    display: block;
-    line-height: 1.5;
-    padding: .5rem .75rem;
-    position: relative;
-    background-color:var(--dark-color);
+.navbar-item .navbar-link {
+  color: yellow;
+  display: block;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  background-color: var(--dark-color);
 }
-
 
 .navbar-menu {
-  color:yellow;
+  color: yellow;
   box-shadow: 0 8px 16px rgb(10 10 10 / 10%);
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 
 .navbar-menu.is-active {
   background-color: transparent;
 }
 
-
-
 a.navbar-item {
-  color:yellow !important;
+  color: yellow !important;
   font-family: "Starwars";
 }
 
-
 /* Navbar Logo */
 .title {
-  color:yellow;
+  color: yellow;
   font-family: "Starwars";
 }
 
@@ -141,4 +135,13 @@ a.navbar-item {
 .image-size {
   width: 300px;
   height: 300px;
+}
+
+.title {
+  text-align: center;
+}
+
+#search-bar {
+  margin: 0 auto;
+  display: inline-block;
 }

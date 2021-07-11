@@ -130,3 +130,15 @@ a.navbar-item {
 #event_name {
   color: red;
 }
+
+.user {
+  color: black;
+  background-color: white;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.image-size {
+  width: 300px;
+  height: 300px;
+}

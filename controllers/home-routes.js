@@ -55,4 +55,8 @@ router.get("/signup", (req, res) => {
 //   }
 // });
 
+router.get('/results', (req, res) => {
+  res.render('script')
+})
+
 module.exports = router;

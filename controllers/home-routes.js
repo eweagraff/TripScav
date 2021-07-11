@@ -30,6 +30,10 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+router.get("/script", (req, res) => {
+  res.render("script");
+});
+
 // router.get('/', withAuth, async (req, res) => {
 //   try {
 //     // Get all events and JOIN with user data
@@ -55,8 +59,8 @@ router.get("/signup", (req, res) => {
 //   }
 // });
 
-router.get('/results', (req, res) => {
-  res.render('script')
-})
+router.get("/results", (req, res) => {
+  res.render("script");
+});
 
 module.exports = router;

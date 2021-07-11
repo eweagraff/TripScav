@@ -147,58 +147,72 @@ var requestOptions = {
 };
 
 fetch(
-  "https://www.triposo.com/api/20210615/poi.json?countrycode=us&order_by=-score&count=1&fields=images,attribution,location_id,name,score,location_ids,snippet,intro",
+  "https://www.triposo.com/api/20210615/poi.json?countrycode=uk&order_by=-score&count=10&fields=images,attribution,location_id,name,score,location_ids,snippet,intro",
   requestOptions
 )
   .then((response) => response.json())
   .then((data) => {
-    for (let i = 0; i < data.results.length; i++) {
+    // for (let i = 0; i < data.results.length; i++) {
     // console.log(result);
-    let event = data.results[i];
+    // let event = data.results[i];
     // console.log(event)
     // console.log(result.results[0]);
-    // name of event
-    const event_nameID = document.getElementById("event_name");
-    let event_name = event.name;
-    console.log("++");
-    console.log(event_name);
-    event_nameID.textContent = `${event_name}`;
-    // rating of event out of 10
-    const ratingID = document.getElementById("rating");
-    let rating = event.score;
-    console.log("++");
-    console.log(rating);
-    ratingID.textContent = `${rating}`
-    // a small description of event
-    const descriptionID = document.getElementById("description");
-    let description = event.snippet;
-    console.log("++");
-    console.log(description);
-    descriptionID.textContent = `${description}`
-    // city location of event
-    const cityID = document.getElementById("city");
-    let city = event.location_id;
-    if (city) {
-      city = city.replace("2C_", " ");
-      city = city.replace(/_/g, " ");
-    }
-    console.log("++");
-    console.log(city);
-    cityID.textContent = `${city}`
-    // map loaction of event
-    const mapID = document.getElementById("map");
-    let map = event.attribution[0].url;
-    console.log("++");
-    console.log(map);
-    mapID.href = map;
-    // mapID.textContent = `${map}`
-    // an image of event
-    const imageID = document.getElementById("image");
-    let image = event.images[0].sizes.medium.url;
-    console.log("++");
-    console.log(image);
-    imageID.src = image;
-    // imageID.textContent = `${image}`
-  } // end of for loop
+    const html = data.results.map(event => {
+      return `
+      <div class="user">
+        <div>Name: ${event.name}</div>
+        <div>Score: ${event.score}</div>
+        <div>Description: ${event.snippet}</div>
+        <div>City:  ${event.location_id}</div>
+        <p><img class= "image-size" src="${event.images[0].sizes.medium.url}" alt="${event.name}" /></p>
+      </div>`
+    }).join('');
+  //   // name of event
+  //   const event_nameID = document.getElementById("event_name");
+  //   let event_name = event.name;
+  //   console.log("++");
+  //   console.log(event_name);
+  //   event_nameID.textContent = `${event_name}`;
+  //   // rating of event out of 10
+  //   const ratingID = document.getElementById("rating");
+  //   let rating = event.score;
+  //   console.log("++");
+  //   console.log(rating);
+  //   ratingID.textContent = `${rating}`
+  //   // a small description of event
+  //   const descriptionID = document.getElementById("description");
+  //   let description = event.snippet;
+  //   console.log("++");
+  //   console.log(description);
+  //   descriptionID.textContent = `${description}`
+  //   // city location of event
+  //   const cityID = document.getElementById("city");
+  //   let city = event.location_id;
+  //   if (city) {
+  //     city = city.replace("2C_", " ");
+  //     city = city.replace(/_/g, " ");
+  //   }
+  //   console.log("++");
+  //   console.log(city);
+  //   cityID.textContent = `${city}`
+  //   // map loaction of event
+  //   const mapID = document.getElementById("map");
+  //   let map = event.attribution[0].url;
+  //   console.log("++");
+  //   console.log(map);
+  //   mapID.href = map;
+  //   // mapID.textContent = `${map}`
+  //   // an image of event
+  //   const imageID = document.getElementById("image");
+  //   let image = event.images[0].sizes.medium.url;
+  //   console.log("++");
+  //   console.log(image);
+  //   imageID.src = image;
+  //   // imageID.textContent = `${image}`
+  // // } // end of for loop
+  console.log(html)
+  document.querySelector('#app').insertAdjacentHTML("afterbegin", html)
   })
-  .catch((error) => console.log("error", error));
+  .catch((error) => {
+    console.log("error", error)
+  });

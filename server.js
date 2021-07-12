@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
+require("dotenv").config();
 //const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 
@@ -37,5 +38,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening on ' + PORT));
+  app.listen(PORT, () => console.log(`Now listening on PORT: ${PORT}`));
 });

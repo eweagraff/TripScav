@@ -1,4 +1,20 @@
 
+
+
+//Creates Timestamp on localStore for videoplayback upon page refresh
+window.onload = () => {
+    var vid = document.getElementById("video");
+    console.log(vid);
+    if (localStorage.getItem("videoTime") !== null && localStorage.getItem("videoTime") !== undefined) {
+        vid.currentTime = localStorage.getItem("videoTime");
+    }
+    setInterval(() => { localStorage.setItem("videoTime", vid.currentTime); }, 1000);
+}
+
+
+
+
+
 //One Modal Single Modal by Id
 function openModal() {
     //Get element with Id= "modal"
@@ -13,29 +29,29 @@ function openMore(n) {
     //Get elements with class="modal" into an array
     var modal = document.getElementsByClassName("modal");
     //Change style of modal number [n] to display = "block"
-    modal[n].classList.toggle("is-active");
+    modal[n].classList.add("is-active");
     html.classList.add('is-clipped');
 }
 
-//This will close the modal once you click on it
-window.onclick = function(event) {
-    
+//This will close the modal once you click on the X
+window.onclick = function (event) {
+    console.log(event.target);
 
     //For multiple modal closures
-    var modal = document.getElementsByClassName("modal")
-    for ( var i = 0; i <modal.length; i++)
-    //If the click was on the modal the modal class "is-active" removed
-    if (event.target.parentElement == modal[i]) {
-        modal[i].classList.remove ("is-active");
-    }
+    var modal = document.getElementsByClassName("modal-close")
+    for (var i = 0; i <= modal.length; i++)
+        //If the click was on the modal the modal class "is-active" removed
+        if (event.target == modal[i]) {
+            modal[i].parentElement.classList.remove("is-active");
+        }
 }
 
 
 // Millenium Falcon + Tie Fighter Cursor Flying
 var cursor = document.querySelector(".cursor");
 var cursor2 = document.querySelector(".cursor2");
-document.addEventListener("mousemove",function(e){
-  cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+document.addEventListener("mousemove", function (e) {
+    cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
 });
 
 

@@ -9,7 +9,6 @@ html {
   cursor: url("../cursor/Milcur.cur"), default;
 }
 
-
 .background {
   background-color: black;
 }
@@ -146,3 +145,16 @@ a.navbar-item {
   margin: 0 auto;
   display: inline-block;
 }
+
+#header {
+    background: 
+  linear-gradient(rgba(88, 86, 86, 0.5), rgba(247, 244, 244, 0.548)), url("../assets/images/thailand.jpeg");
+  background-size: cover;
+  height: 30vh;
+  margin-bottom: 10px;
+}
+
+/* homepage styling/*
+
+
+

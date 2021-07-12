@@ -134,11 +134,6 @@
 
 console.log("script.js file");
 
-function citySearch(event) {
-  event.preventDefault();
-  var searchedCity = document.querySelector("#citySearch").value;
-}
-
 ////////////////////////////////////////////////////////
 
 var myHeaders = new Headers();

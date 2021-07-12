@@ -1,7 +1,11 @@
 <h1 class="title">Search Trip Scav for your next destination!</h1>
   <div class="control">
-    <input class="input is-rounded" id="search-bar" type="text" style="width:80%" placeholder="Search a Country">
+    <form id="searchForm">
+
+    <input class="input is-rounded" id="citySearch" type="text" style="width:80%" placeholder="Search a Country">
   <button class="button is-warning" id="search-button">Search</button>
+
+    </form>
   </div> 
 
 {{!-- {{#each}} --}}
@@ -14,6 +18,9 @@
 <img id="image"> --}}
 {{!-- {{/each}} --}}
 
+<div id="location"> </div>
+
 <div id="app"></div>
 
 <script src="./js/script.js"></script>
+<script src="./js/testscript.js"></script>

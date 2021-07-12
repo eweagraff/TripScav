@@ -1,18 +1,35 @@
 
-// Modal Toggle Code
-// document.querySelector('#open-modal').addEventListener('click', function(event) {
-//     event.preventDefault();
-//     var modal = document.querySelector('.modal');  // assuming you have only 1
-//     var html = document.querySelector('html');
-//     modal.classList.add('is-active');
-//     html.classList.add('is-clipped');
-  
-//     modal.querySelector('.modal-background').addEventListener('click', function(e) {
-//       e.preventDefault();
-//       modal.classList.remove('is-active');
-//       html.classList.remove('is-clipped');
-//     });
-//   });
+//One Modal
+function openModal() {
+    //Get element with Id= "modal"
+    var modal = document.getElementById("modal");
+    //Change style to display = "block"
+    modal.classList.add("is-active");
+}
+
+//Multiple Modals Tag Each New Link for Modals with an Openmore(x) for each modal from the array made going from top to bottom
+function openMore(n) {
+    var html = document.querySelector('html');
+    //Get elements with class="modal" into an array
+    var modal = document.getElementsByClassName("modal");
+    //Change style of modal number [n] to display = "block"
+    modal[n].classList.toggle("is-active");
+    html.classList.add('is-clipped');
+}
+
+//This will close the modal once you click on it
+window.onclick = function(event) {
+    
+
+    //For multiple modal closures
+    var modal = document.getElementsByClassName("modal")
+    for ( var i = 0; i <modal.length; i++)
+    //If the click was on the modal the modal class "is-active" removed
+    if (event.target.parentElement == modal[i]) {
+        modal[i].classList.remove ("is-active");
+    }
+}
+
 
 // Millenium Falcon + Tie Fighter Cursor Flying
 var cursor = document.querySelector(".cursor");

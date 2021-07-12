@@ -1,5 +1,5 @@
 
-//One Modal
+//One Modal Single Modal by Id
 function openModal() {
     //Get element with Id= "modal"
     var modal = document.getElementById("modal");

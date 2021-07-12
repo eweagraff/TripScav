@@ -18,27 +18,27 @@ router.post('/', (req, res) => {
     console.log("\n=======================================");
     console.log("\n++++++++++++YOUR IN THE ACCOUNT CREATION FUNCTION+++++++++++++");
     console.log("\n=======================================");
-     User.create({
-      username: req.body.username,
-      password: req.body.password,
-      email:req.body.email
-  })
+    User.create({
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email
+    })
 
-      .then(dbUserData => {
-          req.session.save(() => {
-              req.session.user_id = dbUserData.id;
-              req.session.username = dbUserData.username;
-              req.session.email = dbUserData.email;
-              req.session.loggedIn = true;
+        .then(dbUserData => {
+            req.session.save(() => {
+                req.session.user_id = dbUserData.id;
+                req.session.username = dbUserData.username;
+                req.session.email = dbUserData.email;
+                req.session.loggedIn = true;
 
-              res.json(dbUserData);
-              
-          });
-      })
-      .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-      });
+                res.json(dbUserData);
+
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 
@@ -64,80 +64,80 @@ router.post('/login', (req, res) => {
     console.log("\n=======================================");
     console.log("\n++++++++++++YOUR IN THE LOGIN FUNCTION+++++++++++++");
     console.log("\n=======================================");
-  User.findOne({
-      where: {
-          username: req.body.username
-      }
-  }).then(dbUserData => {
-      if (!dbUserData) {
-          res.status(400).json({ message: 'No user with that username!' });
-          return;
-      }
-      const validPassword = dbUserData.checkPassword(req.body.password);
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    }).then(dbUserData => {
+        if (!dbUserData) {
+            res.status(400).json({ message: 'No user with that username!' });
+            return;
+        }
+        const validPassword = dbUserData.checkPassword(req.body.password);
 
-      if (!validPassword) {
-          res.status(400).json({ message: 'Incorrect password!' });
-          return;
-      }
-      req.session.save(() => {
-          req.session.user_id = dbUserData.id;
-          req.session.username = dbUserData.username;
-          req.session.loggedIn = true;
+        if (!validPassword) {
+            res.status(400).json({ message: 'Incorrect password!' });
+            return;
+        }
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.loggedIn = true;
 
-          res.json({ user: dbUserData, message: 'You are now logged in!' });
-      });
-  })
-      .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-      });
+            res.json({ user: dbUserData, message: 'You are now logged in!' });
+        });
+    })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.post('/logout', (req, res) => {
     console.log("\n=======================================");
     console.log("\n++++++++++++YOUR IN THE LOGOUT FUNCTION+++++++++++++");
     console.log("\n=======================================");
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 
 
 
-// router.post('/login', async (req, res) => {
-//   try {
-//     const userData = await User.findOne({ where: { email: req.body.email } });
+    // router.post('/login', async (req, res) => {
+    //   try {
+    //     const userData = await User.findOne({ where: { email: req.body.email } });
 
-//     if (!userData) {
-//       res
-//         .status(400)
-//         .json({ message: 'Incorrect email or password, please try again' });
-//       return;
-//     }
+    //     if (!userData) {
+    //       res
+    //         .status(400)
+    //         .json({ message: 'Incorrect email or password, please try again' });
+    //       return;
+    //     }
 
-//     const validPassword = await userData.checkPassword(req.body.password);
+    //     const validPassword = await userData.checkPassword(req.body.password);
 
-//     if (!validPassword) {
-//       res
-//         .status(400)
-//         .json({ message: 'Incorrect email or password, please try again' });
-//       return;
-//     }
+    //     if (!validPassword) {
+    //       res
+    //         .status(400)
+    //         .json({ message: 'Incorrect email or password, please try again' });
+    //       return;
+    //     }
 
-//     req.session.save(() => {
-//       req.session.user_id = userData.id;
-//       req.session.logged_in = true;
-      
-//       res.json({ user: userData, message: 'You are now logged in!' });
-//     });
+    //     req.session.save(() => {
+    //       req.session.user_id = userData.id;
+    //       req.session.logged_in = true;
 
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+    //       res.json({ user: userData, message: 'You are now logged in!' });
+    //     });
+
+    //   } catch (err) {
+    //     res.status(400).json(err);
+    //   }
+    // });
 
 });
 

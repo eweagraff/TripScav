@@ -34,14 +34,15 @@
         <a id="logout" class="navbar-item" href="/">Logout</a>
         <a id="search" class="navbar-item" href="/script">Search</a>
         {{else}}
-        <a id="login" class="navbar-item" href="/login">Login</a>
+        <a id="login" onclick="openMore(1)" class="navbar-item">Login</a>
         {{/if}}
-        <a id="signup" href="/signup" class="navbar-item">Signup</a>
+        {{!-- Called onclick function to open modal can be done with buttons as well --}}
+        <a id="signup" onclick="openMore(0)" class="navbar-item">Signup</a>
       </div>
     </div>
   </nav>
   <main class="main is-variable is-2-mobile is-0-tablet is-3-desktop is-8-widescreen is-1-fullhd">
-    <div style="z-index:-1"class="background">
+    <div class="background">
       <video preload="auto" playsinline loop width="100%" height="100%" autoplay muted>
         <source src="/mov/TS.mov" type="video/mp4">
         <source src="movie.ogg" type="video/ogg">
@@ -60,10 +61,10 @@
     </div>
     {{!-- Millenium Falcon + Tie Fighter Flying --}}
     <div class="cursor"></div>
-  <div class="cursor2"></div>
+    <div class="cursor2"></div>
 
-    {{!-- Modal Will Use Later when Routes Done --}}
-    {{!-- <div class="modal">
+    {{!-- Sign up Modal --}}
+    <div class="modal">
       <div class="modal-background"></div>
       <div class="modal-content">
         <form id="signup-form">
@@ -91,16 +92,47 @@
             </div>
           </div>
         </form>
-        <button class="modal-close is-large" aria-label="close"></button>
-      </div> --}}
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
 
-
-      <!-- Cursor and Navigation Bar Javascript -->
-      <script src="/js/menu.js"></script>
-      <!-- Render script for logged in users only -->
-      {{#if loggedIn}}
-      <script src="/js/logout.js"></script>
-      {{/if}}
+    {{!-- Login Modal --}}
+   <div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <form id="login-form">
+        <div class="field">
+          <label class="label">Username</label>
+          <div class="control">
+            <input id="username-login" class="input" type="text" placeholder="Username" autofocus="true">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input id="password-login" class="input" type="text" placeholder="Password" autofocus="true">
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-link">Submit</button>
+          </div>
+        </div>
+      </form>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+      
+   
+{{!-- Modals Login and Signup Scripts --}}
+    <script src="/js/login.js"></script>
+    <script src="/js/signup.js"></script>
+    <!-- Cursor and Navigation Bar Javascript -->
+    <script src="/js/menu.js"></script>
+    <!-- Render script for logged in users only -->
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 
 
 

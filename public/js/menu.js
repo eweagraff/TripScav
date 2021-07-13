@@ -4,7 +4,6 @@
 //Creates Timestamp on localStore for videoplayback upon page refresh
 window.onload = () => {
     var vid = document.getElementById("video");
-    console.log(vid);
     if (localStorage.getItem("videoTime") !== null && localStorage.getItem("videoTime") !== undefined) {
         vid.currentTime = localStorage.getItem("videoTime");
     }

@@ -4,7 +4,6 @@
 //Creates Timestamp on localStore for videoplayback upon page refresh
 window.onload = () => {
     var vid = document.getElementById("video");
-    console.log(vid);
     if (localStorage.getItem("videoTime") !== null && localStorage.getItem("videoTime") !== undefined) {
         vid.currentTime = localStorage.getItem("videoTime");
     }
@@ -36,13 +35,14 @@ function openMore(n) {
 //This will close the modal once you click on the X
 window.onclick = function (event) {
     console.log(event.target);
-
+    var html = document.querySelector('html');
     //For multiple modal closures
     var modal = document.getElementsByClassName("modal-close")
     for (var i = 0; i <= modal.length; i++)
         //If the click was on the modal the modal class "is-active" removed
         if (event.target == modal[i]) {
             modal[i].parentElement.classList.remove("is-active");
+            html.removeAttribute("class");
         }
 }
 

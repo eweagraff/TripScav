@@ -31,9 +31,10 @@
       <div class="navbar-start"></div>
       <div class="navbar-end">
         {{#if loggedIn}}
-        <a id="logout" class="navbar-item" href="/">Logout</a>
-        <a id="search" class="navbar-item" href="/script">Search</a>
-        {{else}}
+         <a id="search" class="navbar-item" href="/script">Search</a>
+           <a id="logout" class="navbar-item" href="/">Logout</a>
+      {{else}}
+         <a id="search" class="navbar-item" href="/script">Search</a>
         <a id="login" onclick="openMore(1)" class="navbar-item">Login</a>
         {{/if}}
         {{!-- Called onclick function to open modal can be done with buttons as well --}}
@@ -55,9 +56,7 @@
         <!-- Render the sub layout -->
         {{{ body }}}
       </main>
-      <footer>
-
-      </footer>
+     
     </div>
     {{!-- Millenium Falcon + Tie Fighter Flying --}}
     <div class="cursor"></div>

@@ -32,7 +32,7 @@
       <div class="navbar-end">
         {{#if loggedIn}}
         <a id="logout" class="navbar-item" href="/">Logout</a>
-        <a id="search" class="navbar-item" href="">Search</a>
+        <a id="search" class="navbar-item" href="/script">Search</a>
         {{else}}
         <a id="login" onclick="openMore(1)" class="navbar-item">Login</a>
         {{/if}}
@@ -43,7 +43,7 @@
   </nav>
   <main class="main is-variable is-2-mobile is-0-tablet is-3-desktop is-8-widescreen is-1-fullhd">
     <div class="background">
-      <video id="video" preload="auto" playsinline loop width="100%" height="100%" autoplay muted>
+      <video id= preload="auto" playsinline loop width="100%" height="100%" autoplay muted>
         <source src="/mov/TS.mov" type="video/mp4">
         <source src="movie.ogg" type="video/ogg">
       </video>
@@ -51,30 +51,11 @@
         <iframe
           src="https://docs.google.com/presentation/d/e/2PACX-1vRnxMpVbaigiMLSd4-t_G2bkqWeG66FCozVXWk6C5-_VvDQ3Vjel0x6e3081_ogqHpeLB1q5bquZ5Tt/embed?start=true&loop=true&delayms=2000&rm=minimal"></iframe>
       </div>
-      <h1 class="title">Search Trip Scav for your next destination!</h1>
-  <div class="control">
-    <input class="input is-rounded" id="search-bar" type="text" style="width:80%" placeholder="Search a Country">
-    <button onclick="search()" class="button is-warning" id="search-button">Search</button>
-  </div> 
-
-{{!-- {{#each}} --}}
-{{!-- <div>script handlebars</div>
-<div id="event_name">Hello</div>
-<div id="rating"></div>
-<div id="description"></div>
-<div id="city"></div>
-<a href="" id="map"></a>
-<img id="image"> --}}
-{{!-- {{/each}} --}}
-
-<div id="app"></div>
       <main class="container container-fluid mt-5">
         <!-- Render the sub layout -->
         {{{ body }}}
       </main>
-      <footer>
-
-      </footer>
+      
     </div>
     {{!-- Millenium Falcon + Tie Fighter Flying --}}
     <div class="cursor"></div>
@@ -140,7 +121,7 @@
   <button id="modal-close" class="modal-close is-large" aria-label="close"></button>
 </div>
       
-   <script src="./js/script.js"></script>
+   
 {{!-- Modals Login and Signup Scripts --}}
     <script src="/js/login.js"></script>
     <script src="/js/signup.js"></script>

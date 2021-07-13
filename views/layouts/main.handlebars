@@ -44,10 +44,12 @@
   </nav>
   <main class="main is-variable is-2-mobile is-0-tablet is-3-desktop is-8-widescreen is-1-fullhd">
     <div class="background">
-      <video id="video" preload="auto" playsinline loop width="100%" height="100%" autoplay muted>
-        <source src="/mov/TS.mov" type="video/mp4">
-        <source src="movie.ogg" type="video/ogg">
-      </video>
+       {{#if loggedIn}}
+       {{>uservid}}
+       {{else}}
+       {{>mainvid}}
+       {{/if}}
+    
       <div class="responsive-google-slides">
         <iframe
           src="https://docs.google.com/presentation/d/e/2PACX-1vRnxMpVbaigiMLSd4-t_G2bkqWeG66FCozVXWk6C5-_VvDQ3Vjel0x6e3081_ogqHpeLB1q5bquZ5Tt/embed?start=true&loop=true&delayms=2000&rm=minimal"></iframe>

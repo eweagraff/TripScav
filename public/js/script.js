@@ -138,152 +138,41 @@
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function search() {
-  let searchText = document.getElementById("search-bar").value;
-  // let searchBtn = document.getElementById('search-button').addEventListener('click', search());
-
-  var myHeaders = new Headers();
-  myHeaders.append("X-Triposo-Account", "YU3ML92G");
-  myHeaders.append("X-Triposo-Token", "6ny9va4c72n2xj5b9sw7wpjlubr7uitv");
-
-  // var myHeaders = new Headers();
-  // myHeaders.append(process.env.ACCOUNT_ID);
-  // myHeaders.append(process.env.TOKEN_ID);
-
-  var requestOptions = {
-    method: "GET",
-    headers: myHeaders,
-    redirect: "follow",
-  };
-
-  fetch(
-    `https://www.triposo.com/api/20210615/poi.json?countrycode=${searchText}&order_by=-score&count=10&fields=images,attribution,location_id,name,score,location_ids,snippet,intro`,
-    requestOptions
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      // for (let i = 0; i < data.results.length; i++) {
-      // console.log(result);
-      // let event = data.results[i];
-      // console.log(event)
-      // console.log(result.results[0]);
-      const html = data.results
-        .map((event) => {
-          //  let score= Math.round(event.score)
-          let score = event.score;
-          let roundedScore = score.toFixed(3);
-
-          let city = event.location_id;
-          if (city) {
-            city = city.replace("2C_", " ");
-            city = city.replace(/_/g, " ");
-            city = city.replace(/-/g, " ");
-            city = city.replace(/[0-9]/g, " ");
-          }
-
-          return `
-      <div class="user">
-        <div>Site: ${event.name}</div>
-        <div>City: ${city}</div>
-        <p><img class= "image-size" src="${event.images[0].sizes.medium.url}" alt="${event.name}" /></p>
-        <div>Description: ${event.snippet}</div>
-        <div>Rating: ${roundedScore} </div>
-      </div>`;
-        })
-        .join("");
-      //   // name of event
-      //   const event_nameID = document.getElementById("event_name");
-      //   let event_name = event.name;
-      //   console.log("++");
-      //   console.log(event_name);
-      //   event_nameID.textContent = `${event_name}`;
-      //   // rating of event out of 10
-      //   const ratingID = document.getElementById("rating");
-      //   let rating = event.score;
-      //   console.log("++");
-      //   console.log(rating);
-      //   ratingID.textContent = `${rating}`
-      //   // a small description of event
-      //   const descriptionID = document.getElementById("description");
-      //   let description = event.snippet;
-      //   console.log("++");
-      //   console.log(description);
-      //   descriptionID.textContent = `${description}`
-      //   // city location of event
-      //   const cityID = document.getElementById("city");
-      //   let city = event.location_id;
-      //   if (city) {
-      //     city = city.replace("2C_", " ");
-      //     city = city.replace(/_/g, " ");
-      //   }
-      //   console.log("++");
-      //   console.log(city);
-      //   cityID.textContent = `${city}`
-      //   // map loaction of event
-      //   const mapID = document.getElementById("map");
-      //   let map = event.attribution[0].url;
-      //   console.log("++");
-      //   console.log(map);
-      //   mapID.href = map;
-      //   // mapID.textContent = `${map}`
-      //   // an image of event
-      //   const imageID = document.getElementById("image");
-      //   let image = event.images[0].sizes.medium.url;
-      //   console.log("++");
-      //   console.log(image);
-      //   imageID.src = image;
-      //   // imageID.textContent = `${image}`
-      // // } // end of for loop
-      console.log(html);
-      document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
-    })
-    .catch((error) => {
-      console.log("error", error);
-    });
-}
-
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//////////////////////////////// TRYING TO USE AXIOS ////////////////////////////////
-// var axios = require("axios");
-
 // function search() {
 //   let searchText = document.getElementById("search-bar").value;
+//   // let searchBtn = document.getElementById('search-button').addEventListener('click', search());
 
-//   var config = {
-//     method: "get",
-//     url: `https://www.triposo.com/api/20210615/poi.json?countrycode=${searchText}&order_by=-score&count=10&fields=images,attribution,location_id,name,score,location_ids,snippet,intro`,
-//     headers: {
-//       "X-Triposo-Account": "YU3ML92G",
-//       "X-Triposo-Token": "6ny9va4c72n2xj5b9sw7wpjlubr7uitv",
-//     },
+//   var myHeaders = new Headers();
+//   myHeaders.append("X-Triposo-Account", "YU3ML92G");
+//   myHeaders.append("X-Triposo-Token", "6ny9va4c72n2xj5b9sw7wpjlubr7uitv");
+
+//   // var myHeaders = new Headers();
+//   // myHeaders.append(process.env.ACCOUNT_ID);
+//   // myHeaders.append(process.env.TOKEN_ID);
+
+//   var requestOptions = {
+//     method: "GET",
+//     headers: myHeaders,
+//     redirect: "follow",
 //   };
 
-//   axios(config)
-//     .then(function (response) {
-//       console.log(response.data);
-//       const html = response.data.results
+//   fetch(
+//     `https://www.triposo.com/api/20210615/poi.json?countrycode=${searchText}&order_by=-score&count=10&fields=images,attribution,location_id,name,score,location_ids,snippet,intro`,
+//     requestOptions
+//   )
+//     .then((response) => response.json())
+//     .then((data) => {
+//       // for (let i = 0; i < data.results.length; i++) {
+//       // console.log(result);
+//       // let event = data.results[i];
+//       // console.log(event)
+//       // console.log(result.results[0]);
+//       const html = data.results
 //         .map((event) => {
-//           // rounds down the rating
+//           //  let score= Math.round(event.score)
 //           let score = event.score;
-//           let roundedScore = score.toFixed(2);
-//           // uses regex to remove uncessary text from city names
+//           let roundedScore = score.toFixed(3);
+
 //           let city = event.location_id;
 //           if (city) {
 //             city = city.replace("2C_", " ");
@@ -293,15 +182,58 @@ function search() {
 //           }
 
 //           return `
-//    <div class="user">
-//      <div>Site: ${event.name}</div>
-//      <div>City: ${city}</div>
-//      <p><img class= "image-size" src="${event.images[0].sizes.medium.url}" alt="${event.name}" /></p>
-//      <div>Description: ${event.snippet}</div>
-//      <div>Rating: ${roundedScore} </div>
-//    </div>`;
+//       <div class="user">
+//         <div>Site: ${event.name}</div>
+//         <div>City: ${city}</div>
+//         <p><img class= "image-size" src="${event.images[0].sizes.medium.url}" alt="${event.name}" /></p>
+//         <div>Description: ${event.snippet}</div>
+//         <div>Rating: ${roundedScore} </div>
+//       </div>`;
 //         })
 //         .join("");
+//       //   // name of event
+//       //   const event_nameID = document.getElementById("event_name");
+//       //   let event_name = event.name;
+//       //   console.log("++");
+//       //   console.log(event_name);
+//       //   event_nameID.textContent = `${event_name}`;
+//       //   // rating of event out of 10
+//       //   const ratingID = document.getElementById("rating");
+//       //   let rating = event.score;
+//       //   console.log("++");
+//       //   console.log(rating);
+//       //   ratingID.textContent = `${rating}`
+//       //   // a small description of event
+//       //   const descriptionID = document.getElementById("description");
+//       //   let description = event.snippet;
+//       //   console.log("++");
+//       //   console.log(description);
+//       //   descriptionID.textContent = `${description}`
+//       //   // city location of event
+//       //   const cityID = document.getElementById("city");
+//       //   let city = event.location_id;
+//       //   if (city) {
+//       //     city = city.replace("2C_", " ");
+//       //     city = city.replace(/_/g, " ");
+//       //   }
+//       //   console.log("++");
+//       //   console.log(city);
+//       //   cityID.textContent = `${city}`
+//       //   // map loaction of event
+//       //   const mapID = document.getElementById("map");
+//       //   let map = event.attribution[0].url;
+//       //   console.log("++");
+//       //   console.log(map);
+//       //   mapID.href = map;
+//       //   // mapID.textContent = `${map}`
+//       //   // an image of event
+//       //   const imageID = document.getElementById("image");
+//       //   let image = event.images[0].sizes.medium.url;
+//       //   console.log("++");
+//       //   console.log(image);
+//       //   imageID.src = image;
+//       //   // imageID.textContent = `${image}`
+//       // // } // end of for loop
 //       console.log(html);
 //       document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
 //     })
@@ -309,3 +241,55 @@ function search() {
 //       console.log("error", error);
 //     });
 // }
+
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////// TRYING TO USE AXIOS ////////////////////////////////
+// var axios = require("axios");
+
+function search() {
+  let searchText = document.getElementById("search-bar").value.toLowerCase();
+
+  var config = {
+    method: "get",
+    url: `https://www.triposo.com/api/20210615/poi.json?countrycode=${searchText}&order_by=-score&count=10&fields=images,attribution,location_id,name,score,location_ids,snippet,intro`,
+    headers: {
+      "X-Triposo-Account": "YU3ML92G",
+      "X-Triposo-Token": "6ny9va4c72n2xj5b9sw7wpjlubr7uitv",
+    },
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(response.data);
+      const html = response.data.results.map((event) => {
+          // rounds down the rating
+          let score = event.score;
+          let roundedScore = score.toFixed(2);
+          // uses regex to remove uncessary text from city names
+          let city = event.location_id;
+          if (city) {
+            city = city.replace("2C_", " ");
+            city = city.replace(/_/g, " ");
+            city = city.replace(/-/g, " ");
+            city = city.replace(/[0-9]/g, " ");
+          }
+          return `
+   <div class="user">
+     <div>Site: ${event.name}</div>
+     <div>City: ${city}</div>
+     <p><img class= "image-size" src="${event.images[0].sizes.medium.url}" alt="${event.name}" /></p>
+     <div>Description: ${event.snippet}</div>
+     <div>Rating: ${roundedScore}/10.00 </div>
+   </div>`;
+        })
+        .join("");
+      console.log(html);
+      document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
+    })
+    .catch((error) => {
+      console.log("error", error);
+    });
+}

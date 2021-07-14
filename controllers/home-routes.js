@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Site, User } = require("../models");
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 //Starts us on homepage by default
 router.get("/", (req, res) => {
@@ -63,8 +63,11 @@ router.get("/homepage", (req, res) => {
 //   }
 // });
 
-router.get("/script", (req, res) => {
-  res.render("script");
+router.get("/script",withAuth, (req, res) => {
+  res.render("script", {
+    loggedIn: req.session.loggedIn
+  }
+  );
 });
 
 module.exports = router;

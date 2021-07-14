@@ -316,12 +316,12 @@ function input() {
       <div><span class="font">Description:</span> ${event.snippet}</div>
     </div>
    </div>`;
-        })
-        .join("");
-      console.log(html);
-      document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
-    })
-    .catch((error) => {
-      console.log("error", error);
-    });
+      })
+      .join("");
+    console.log(html);
+    document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
+  })
+  .catch((error) => {
+    console.log("error", error);
+  });
 }

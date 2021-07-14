@@ -269,7 +269,7 @@ function search() {
       countryCode = response.data[0].alpha2Code.toLowerCase();
       // countryCodeLower = countryCode.toLowerCase();
       // console.log(countryCodeLower);
-      input()
+      input();
       // return countryCodeLower;
     })
     .catch(function (error) {
@@ -278,49 +278,50 @@ function search() {
 }
 // search();
 
-
-function input () {
+function input() {
   let code = countryCode;
 
-var config = {
-  method: "get",
-  url: `https://www.triposo.com/api/20210615/poi.json?countrycode=${code}&order_by=-score&count=10&fields=images,attribution,location_id,name,score,location_ids,snippet,intro`,
-  headers: {
-    "X-Triposo-Account": "YU3ML92G",
-    "X-Triposo-Token": "6ny9va4c72n2xj5b9sw7wpjlubr7uitv",
-  },
-};
+  var config = {
+    method: "get",
+    url: `https://www.triposo.com/api/20210615/poi.json?countrycode=${code}&order_by=-score&count=10&fields=images,attribution,location_id,name,score,location_ids,snippet,intro`,
+    headers: {
+      "X-Triposo-Account": "YU3ML92G",
+      "X-Triposo-Token": "6ny9va4c72n2xj5b9sw7wpjlubr7uitv",
+    },
+  };
 
-axios(config)
-  .then(function (response) {
-    console.log(response.data);
-    const html = response.data.results
-      .map((event) => {
-        // rounds down the rating
-        let score = event.score;
-        let roundedScore = score.toFixed(2);
-        // uses regex to remove uncessary text from city names
-        let city = event.location_id;
-        if (city) {
-          city = city.replace("2C_", " ");
-          city = city.replace(/_/g, " ");
-          city = city.replace(/-/g, " ");
-          city = city.replace(/[0-9]/g, " ");
-        }
-        return `
-   <div class="user">
-     <div>Site: ${event.name}</div>
-     <div>City: ${city}</div>
-     <p><img class= "image-size" src="${event.images[0].sizes.medium.url}" alt="${event.name}" /></p>
-     <div>Description: ${event.snippet}</div>
-     <div>Rating: ${roundedScore}/10.00 </div>
+  axios(config)
+    .then(function (response) {
+      console.log(response.data);
+      const html = response.data.results
+        .map((event) => {
+          // rounds down the rating
+          let score = event.score;
+          let roundedScore = score.toFixed(2);
+          // uses regex to remove uncessary text from city names
+          let city = event.location_id;
+          if (city) {
+            city = city.replace("2C_", " ");
+            city = city.replace(/_/g, " ");
+            city = city.replace(/-/g, " ");
+            city = city.replace(/[0-9]/g, " ");
+          }
+          return `
+   <div class="column border is-full-mobile is-half-tablet is-one-third-desktop">
+    <div class="user">
+      <div><span class="font">Site:</span> ${event.name}</div>
+      <div><span class="font">City:</span> ${city}</div>
+      <div><span class="font">Rating:</span> ${roundedScore}/10.00 </div>
+      <p><img class= "image-size" src="${event.images[0].sizes.medium.url}" alt="${event.name}" /></p>
+      <div><span class="font">Description:</span> ${event.snippet}</div>
+    </div>
    </div>`;
-      })
-      .join("");
-    console.log(html);
-    document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
-  })
-  .catch((error) => {
-    console.log("error", error);
-  });
+        })
+        .join("");
+      console.log(html);
+      document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
+    })
+    .catch((error) => {
+      console.log("error", error);
+    });
 }

@@ -44,12 +44,13 @@
   </nav>
   <main class="main is-variable is-2-mobile is-0-tablet is-3-desktop is-8-widescreen is-1-fullhd">
     <div class="background">
+      {{!-- If logged in display static video loop if not then display promo loop --}}
        {{#if loggedIn}}
+       {{!-- uservid template registered under partials folder in views --}}
        {{>uservid}}
        {{else}}
        {{>mainvid}}
        {{/if}}
-    
       <div class="responsive-google-slides">
         <iframe
           src="https://docs.google.com/presentation/d/e/2PACX-1vRnxMpVbaigiMLSd4-t_G2bkqWeG66FCozVXWk6C5-_VvDQ3Vjel0x6e3081_ogqHpeLB1q5bquZ5Tt/embed?start=true&loop=true&delayms=2000&rm=minimal"></iframe>
@@ -111,7 +112,7 @@
         <div class="field">
           <label class="label">Password</label>
           <div class="control">
-            <input id="password-login" class="input" type="text" placeholder="Password" autofocus="true">
+            <input id="password-login" class="input" type="password" placeholder="Password" autofocus="true">
           </div>
         </div>
         <div class="field is-grouped">
@@ -135,7 +136,8 @@
     <script src="/js/logout.js"></script>
     {{/if}}
 
-{{!-- <script src="src/bundle.js"></script> --}}
+
+
 </body>
 
 </html>

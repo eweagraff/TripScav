@@ -13,6 +13,11 @@ Site.init(
     },
     site_name: {
       type: DataTypes.STRING,
+      allowNull: false,
+      unique:true,
+      validate: {
+        notEmpty:true,
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,

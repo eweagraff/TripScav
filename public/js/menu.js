@@ -34,7 +34,6 @@ function openMore(n) {
 
 //This will close the modal once you click on the X
 window.onclick = function (event) {
-    console.log(event.target);
     var html = document.querySelector('html');
     //For multiple modal closures
     var modal = document.getElementsByClassName("modal-close")

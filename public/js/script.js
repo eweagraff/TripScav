@@ -251,6 +251,35 @@
 
 // var axios = require('axios');
 // let countryCodeLower;
+
+// SAVE SEARCHED COUNTRY TO DATABASE UNDER LOGGED IN USER
+async function saveUrl() {
+ 
+  const site = document.getElementById("search-bar").value;
+
+  if (site) {
+      const response = await fetch('/api/post/search', {
+          method: 'POST',
+          body: JSON.stringify({
+              site,
+              
+              
+          }),
+          headers: { 'Content-Type': 'application/json' }
+      });
+      if (response.ok) {
+          console.log('success');
+
+
+         
+
+      } else {
+          alert(response.statusText);
+      }
+  }
+}
+
+
 let countryCode;
 
 function search() {

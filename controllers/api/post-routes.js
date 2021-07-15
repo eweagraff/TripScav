@@ -3,35 +3,31 @@ const { Site, User, Location } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
-
-router.get('/', withAuth, (req, res) => {
-    console.log("++++++++++++++IN THE GET GET GET +++++++++++");
+router.get('/Site', withAuth, (req, res) => {
     Site.findAll({
         where: {
             user_id: req.session.user_id
         },
-        attributes: [
+        attributes: ['id',
             'site_name',
-            'user_id',
-
-
+            'created_at'
         ],
-        include: {
-            include: {
-                model: User,
-                attributes: ['username']
-
-            },
-
-
-        }
+        order: [
+            ['created_at', 'DESC']
+        ],
+        include: [{
+            model: User,
+            attributes: ['username']
+        },
+       
+        ]
     })
-        .then(dbPostData => {
+    .then(dbPostData => {
 
-            const posts = dbPostData.map(post => post.get({ plain: true }));
-            res.render('dashboard', { posts, loggedIn: true });
+        const posts = dbPostData.map(post => post.get({ plain: true }));
+        res.render('dashboard', { posts, loggedIn: true });
 
-        })
+    })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -39,7 +35,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 
-router.post('/search', (req, res) => {
+router.post('/search', withAuth, (req, res) => {
     console.log("++++++++++++YOUR HITTING THE SEARCH ROUTE+++++++++");
     Site.create({
         site_name: req.body.site,

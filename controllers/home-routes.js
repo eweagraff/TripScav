@@ -19,7 +19,7 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
-  res.render("login");
+  res.render("homepage");
 });
 
 // Renders signup.handlebars template form to main.handlebars body
@@ -27,7 +27,7 @@ router.get("/signup", (req, res) => {
   console.log("\n=======================================");
   console.log("\n++++++++++++SIGN UP CLICKED ON HOMEPAGE+++++++++++++");
   console.log("\n=======================================");
-  res.render("signup");
+  res.render("/");
 });
 
 // router.get('/', withAuth, async (req, res) => {

@@ -31,6 +31,7 @@
       <div class="navbar-start"></div>
       <div class="navbar-end">
         {{#if loggedIn}}
+        <a id="search" class="navbar-item" href="/api/post/Site">Search History</a>
          <a id="search" class="navbar-item" href="/script">Search</a>
            <a id="logout" class="navbar-item" href="/">Logout</a>
       {{else}}
@@ -85,7 +86,7 @@
           <div class="field">
             <label class="label">Password</label>
             <div class="control">
-              <input id="password-signup" class="input" type="text" placeholder="Password" autofocus="true">
+              <input id="password-signup" class="input" type="password" placeholder="Password" autofocus="true">
             </div>
           </div>
           <div class="field is-grouped">

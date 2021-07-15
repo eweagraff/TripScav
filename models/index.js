@@ -11,8 +11,8 @@ Location.hasMany(Site, {
   foreignKey: "location_id",
 });
 
-Site.belongsTo(Location, {
-  foreignKey: "location_id",
+Site.belongsTo(User, {
+  foreignKey: "user_id",
 });
 
 module.exports = { User, Location, Site, Bucketlist };

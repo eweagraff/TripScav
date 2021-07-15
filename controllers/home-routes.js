@@ -30,6 +30,14 @@ router.get("/signup", (req, res) => {
   res.render("/");
 });
 
+router.get("/bucketlist", (req, res) => {
+  res.render("bucketlist");
+});
+
+router.get("/homepage", (req, res) => {
+  res.render("homepage");
+});
+
 // router.get('/', withAuth, async (req, res) => {
 //   try {
 //     // Get all events and JOIN with user data

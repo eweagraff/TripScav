@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-auto">
+    <h2 class="title">Welcome, {{username}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h1 class="title">Add to your Bucket List:</h1>
+
+    <form id="new-post-form">
+      <div class="form-group">
+        <label class="title" for="bucketlist-title">New Destination:</label>
+        <input class="form-input input is-info input is-large" type="text" id="destination" name="new-destination" />
+      </div>
+
+      <div class="form-group">
+        <label class="title" for="post-content">Tell us why!:</label>
+        <textarea class="form-input input is-info input is-large" id="post-content" name="post-content"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary button is-medium button is-primary is-hovered">Add</button>
+      </div>
+    </form>
+  </div>
+
+<script src="./js/bucketlist.js"></script>

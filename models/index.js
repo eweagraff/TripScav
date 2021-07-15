@@ -1,6 +1,7 @@
 const User = require("./user");
-const Location = require('./location');
-const Site = require('./site');
+const Location = require("./location");
+const Site = require("./site");
+const Bucketlist = require("./bucketlist");
 
 User.hasMany(Site, {
   foreignKey: "user_id",
@@ -14,4 +15,4 @@ Site.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-module.exports = { User, Location, Site };
+module.exports = { User, Location, Site, Bucketlist };

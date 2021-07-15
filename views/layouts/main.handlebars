@@ -31,11 +31,15 @@
       <div class="navbar-start"></div>
       <div class="navbar-end">
         {{#if loggedIn}}
+
+
         <a id="search" class="navbar-item" href="/api/post/Site">Search History</a>
+
          <a id="search" class="navbar-item" href="/script">Search</a>
            <a id="logout" class="navbar-item" href="/">Logout</a>
       {{else}}
          <a id="search" class="navbar-item" href="/script">Search</a>
+
         <a id="login" onclick="openMore(1)" class="navbar-item">Login</a>
         {{/if}}
         {{!-- Called onclick function to open modal can be done with buttons as well --}}

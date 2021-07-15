@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const { User } = require('../../models');
+const router = require("express").Router();
+const { User } = require("../../models");
 
 ///DISABLED IT WAS USED TO get User array from api link
 // router.get('/', (req, res) => {
@@ -22,27 +22,33 @@ router.post('/', (req, res) => {
         username: req.body.username,
         password: req.body.password,
         email: req.body.email
+
     })
-
-        .then(dbUserData => {
-            req.session.save(() => {
-                req.session.user_id = dbUserData.id;
-                req.session.username = dbUserData.username;
-                req.session.email = dbUserData.email;
-                req.session.loggedIn = true;
-
-                res.json(dbUserData);
-
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
+// router.post('/', async (req, res) => {
+//   try {
+//     const userData = await User.create(req.body);
+
+//     req.session.save(() => {
+//       req.session.user_id = userData.id;
+//       req.session.username = userData.username
+//       req.session.logged_in = true;
+
+//       res.status(200).json(userData);
+//     });
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 //Login Function
+
+
 router.post('/login', (req, res) => {
     console.log("\n=======================================");
     console.log("\n++++++++++++YOUR IN THE LOGIN ROUTE+++++++++++++");
@@ -69,12 +75,14 @@ router.post('/login', (req, res) => {
 
             res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
+
     })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
+
 
 router.post('/logout', (req, res) => {
     console.log("\n=======================================");
@@ -87,6 +95,7 @@ router.post('/logout', (req, res) => {
     } else {
         res.status(404).end();
     }
+
 
 
 });
